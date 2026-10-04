@@ -1,0 +1,4 @@
+.env*
+*private*
+seed*.json
+node_modules/

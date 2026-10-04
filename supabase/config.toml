@@ -1,0 +1,3 @@
+[functions.soha-api]
+verify_jwt = false
+# The function validates a random, hashed, expiring portal session on every protected action.
