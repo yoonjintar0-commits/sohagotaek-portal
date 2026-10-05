@@ -90,6 +90,7 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-nav { display:flex!important; padding:5px 8px!important; gap:2px!important; overflow:auto; border-bottom:1px solid var(--s-rule); }
 #soha-portal .s-nav button { flex:1 0 auto; margin:0!important; padding:8px 5px!important; font-size:13px!important; min-height:44px; width:auto!important; white-space:nowrap; text-align:center; }
 #soha-portal .s-nav-title,#soha-portal .s-nav-foot { display:none!important; }
+#soha-portal .s-op-toolbar>label { flex:0 1 280px; min-width:200px; }
 #soha-portal .s-main { padding:15px 12px!important; min-width:0; }
 #soha-portal .s-heading { display:block!important; }
 #soha-portal .s-heading h1 { font-size:24px; }
@@ -151,6 +152,7 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-weekday-grid .s-weekday-full { display:inline; }
 #soha-portal .s-weekday-grid .s-weekday-short { display:none; }
 @media(max-width:700px) {
+ #soha-portal .s-op-toolbar>label { flex:1; min-width:0; }
  #soha-portal .s-weekday-grid .s-weekday-full { display:none; }
  #soha-portal .s-weekday-grid .s-weekday-short { display:inline; }
  #soha-portal .s-live-state { font-size:9px!important; }
@@ -280,4 +282,100 @@ html { touch-action: pan-x pan-y; }
  #soha-portal .s-finance-scope-toolbar label { font-size:11px; text-align:left; }
  #soha-portal .s-finance-scope-toolbar select,#soha-portal .s-finance-scope-toolbar .s-button { height:40px; min-height:40px; }
  #soha-portal .s-finance-scope-toolbar>div>.s-button:not(.s-plus) { font-size:12px; padding:7px; }
+}
+
+/* Shared sticky menu, compact cards, and contained controls. */
+body.soha-standalone #soha-portal { overflow:visible; }
+#soha-portal .s-shell:not([hidden]) { display:block!important; }
+#soha-portal .s-sticky-header { position:sticky; top:0; z-index:40; background:var(--s-paper); box-shadow:0 2px 7px #30241912; }
+#soha-portal .s-sticky-header .s-nav { flex-direction:row!important; justify-content:space-between; border-right:0; border-bottom:1px solid var(--s-rule); }
+#soha-portal .s-sticky-header .s-nav button { justify-content:center; text-align:center; flex:1; }
+#soha-portal .s-nav-title,#soha-portal .s-nav-foot { display:none!important; }
+#soha-portal .s-main { scroll-margin-top:var(--s-header-height,120px); }
+#soha-portal .s-overlay { position:fixed; z-index:100; }
+#soha-portal .s-modal { z-index:101; }
+#soha-portal .s-date-range { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr)); width:min(320px,100%); max-width:100%; padding:0; gap:14px!important; }
+#soha-portal .s-date-range label { display:flex; flex-direction:column; min-width:0!important; gap:5px; }
+#soha-portal .s-date-range input { display:block; width:100%!important; min-width:0!important; min-inline-size:0!important; max-width:100%!important; box-sizing:border-box; }
+#soha-portal .s-date-range input::-webkit-date-and-time-value { text-align:left; }
+#soha-portal .s-date-shortcuts { display:grid!important; grid-template-columns:repeat(6,minmax(0,1fr)); gap:4px; width:calc(100% - 24px); max-width:calc(100% - 24px); margin:10px 12px 8px!important; }
+#soha-portal .s-date-shortcuts .s-button { width:100%; min-width:0!important; min-inline-size:0; max-width:100%; padding:7px 0!important; font-size:12px; min-height:34px; }
+#soha-portal .s-inventory-section+.s-inventory-section { margin-top:22px!important; }
+#soha-portal .s-buy-details { margin-top:18px; padding-top:12px; border-top:1px solid var(--s-rule); }
+#soha-portal .s-live-callout { padding:7px!important; border-radius:10px; }
+#soha-portal .s-live-callout-head { gap:3px; }
+#soha-portal .s-live-site-name { min-height:28px!important; font-size:12px!important; }
+#soha-portal .s-live-state { font-size:9px!important; }
+#soha-portal .s-live-roster { gap:4px; }
+#soha-portal .s-live-clock-count,#soha-portal .s-live-others>.s-small { font-size:10px!important; }
+#soha-portal .s-live-avatar-row { padding:5px 3px; min-height:38px; }
+#soha-portal .s-live-avatar-row .s-live-person { width:26px; min-width:26px; max-width:26px; flex:0 0 26px; }
+#soha-portal .s-live-avatar-row .s-live-person+.s-live-person { margin-left:min(-8px,calc((100% - 26px) / var(--stack-gaps,1) - 26px)); }
+#soha-portal .s-live-person .s-staff-character { width:24px!important; height:24px!important; }
+#soha-portal .s-live-person .s-avatar-wrap { width:24px; height:24px; }
+#soha-portal .s-live-sales { display:flex; flex-direction:column; gap:2px; padding-top:5px!important; margin-top:2px!important; }
+#soha-portal .s-live-sales span { font-size:9px; }
+#soha-portal .s-live-sales strong { font-size:12px; }
+#soha-portal .s-hq-member-list { display:flex; flex-wrap:wrap; gap:12px; padding-top:8px; }
+#soha-portal .s-hq-person { display:flex; align-items:center; gap:6px; border:0; background:none; font-size:12px; padding:4px; }
+#soha-portal .s-profile-compact { padding:0!important; }
+#soha-portal .s-profile-compact summary { cursor:pointer; list-style:none; padding:12px; }
+#soha-portal .s-profile-compact summary::-webkit-details-marker { display:none; }
+#soha-portal .s-profile-compact summary .s-person-head { margin:0; min-height:58px; align-items:center; }
+#soha-portal .s-profile-compact .s-person-head>.s-avatar-decorated { flex-shrink:0; }
+#soha-portal .s-profile-summary { flex:1; min-width:0; }
+#soha-portal .s-profile-summary h3 { font-size:14px; }
+#soha-portal .s-profile-summary small { display:block; font-size:11px; line-height:1.65; color:var(--s-muted); overflow-wrap:anywhere; }
+#soha-portal .s-master-tag { font-size:9px; font-weight:400; color:var(--s-wood); }
+#soha-portal .s-expand-label { font-size:10px; color:var(--s-wood); flex-shrink:0; }
+#soha-portal .s-profile-compact details[open] .s-expand-label { font-size:0; }
+#soha-portal .s-profile-compact details[open] .s-expand-label::after { content:'접기'; font-size:10px; }
+#soha-portal .s-profile-expanded { padding:0 14px 14px; border-top:1px solid var(--s-rule); }
+#soha-portal .s-registration-done { display:grid; gap:14px; }
+#soha-portal .s-location-confirm { display:grid; gap:10px; }
+#soha-portal .s-location-map { position:relative; border:1px solid var(--s-rule); border-radius:9px; overflow:hidden; background:var(--s-soft); }
+#soha-portal .s-location-map svg { display:block; width:100%; }
+#soha-portal .s-location-credit { display:block; background:var(--s-paper); padding:3px 6px; text-align:right; font-size:9px; color:var(--s-muted); }
+#soha-portal .s-location-legend { display:flex; gap:16px; font-size:11px; }
+#soha-portal .s-location-legend span { display:flex; gap:5px; align-items:center; }
+#soha-portal .s-location-legend i { display:block; width:10px; height:10px; border-radius:50%; }
+#soha-portal .s-area-dot { background:#477c53; }
+#soha-portal .s-position-dot { background:#2468ce; }
+#soha-portal .s-location-status { font-size:13px; line-height:1.6; padding:10px; border-radius:6px; background:var(--s-soft); color:var(--s-rust); }
+#soha-portal .s-location-ready { color:var(--s-leaf); }
+#soha-portal .s-location-confirm .s-form-actions { gap:7px; margin-top:3px; }
+#soha-portal .s-location-confirm .s-form-actions .s-button { flex:1; min-width:0; font-size:12px; padding:9px 6px; }
+#soha-portal .s-roadmap-scroll,#soha-portal .s-mobile-roadmap-wrap { overflow:auto!important; max-height:min(620px,70dvh); position:relative; isolation:isolate; }
+#soha-portal .s-continuous-roadmap { border-collapse:separate!important; border-spacing:0; }
+#soha-portal .s-roadmap thead th { position:sticky!important; top:0; background:var(--s-soft)!important; z-index:5; }
+#soha-portal .s-roadmap th:first-child { position:sticky; left:0; z-index:4; background:var(--s-paper); }
+#soha-portal .s-roadmap thead th:first-child { z-index:6; }
+#soha-portal .s-roadmap tbody tr:not(.s-roadmap-store)>th,#soha-portal .s-roadmap tbody tr:not(.s-roadmap-store)>td { background:var(--s-paper)!important; }
+#soha-portal .s-roadmap tbody tr:not(.s-roadmap-store) .s-timeline-day { background:transparent!important; }
+#soha-portal .s-roadmap tbody tr:not(.s-roadmap-store) .s-timeline-day.s-holiday { background:color-mix(in srgb,var(--s-wood) 3%,var(--s-paper))!important; }
+#soha-portal .s-roadmap .s-roadmap-store th,#soha-portal .s-roadmap .s-roadmap-store td { background:color-mix(in srgb,var(--s-rule) 60%,var(--s-paper))!important; height:48px!important; min-height:0; padding:0 6px; }
+#soha-portal .s-store-lane { height:48px!important; min-height:48px!important; }
+#soha-portal .s-store-lane .s-store-day-edit { padding:4px 2px; background:none!important; font-size:11px; text-align:center; }
+#soha-portal .s-store-lane .s-store-hours { top:27px!important; height:16px; background:none!important; font-size:10px; white-space:nowrap; color:var(--s-ink); }
+#soha-portal .s-store-lane .s-timeline-day { background:transparent!important; }
+#soha-portal .s-mobile-roadmap thead th { position:sticky!important; top:0; z-index:5; background:var(--s-soft)!important; }
+#soha-portal .s-mobile-roadmap thead tr:nth-child(2) th { top:var(--s-roadmap-group-height,44px); }
+#soha-portal .s-mobile-roadmap .s-date-column { position:sticky; left:0; z-index:4; }
+#soha-portal .s-mobile-roadmap thead .s-date-column { top:0; z-index:6; }
+#soha-portal .s-mobile-roadmap .s-mobile-store-column,#soha-portal .s-mobile-roadmap .s-mobile-branch-head th { background:color-mix(in srgb,var(--s-rule) 60%,var(--s-paper))!important; }
+#soha-portal .s-mobile-roadmap .s-mobile-store-day { background:none!important; padding:2px 0; margin:0; }
+#soha-portal .s-mobile-roadmap .s-mobile-branch-head th:not(.s-date-column)>button { display:block; position:sticky; left:68px; width:max-content!important; max-width:100%; padding:6px; text-align:left; }
+#soha-portal .s-mobile-roadmap tbody td:not(.s-mobile-store-column) { background:var(--s-paper); }
+#soha-portal .s-photo-checks { margin:16px 0; }
+#soha-portal .s-photo-checks .s-photo-branches { padding:12px; gap:10px; }
+#soha-portal .s-photo-checks .s-photo-branches>div { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:7px; }
+#soha-portal .s-photo-checks small { display:block; font-size:11px; color:var(--s-muted); }
+@media(max-width:700px) {
+ #soha-portal .s-date-range { gap:12px!important; }
+ #soha-portal .s-nav button { min-width:0; flex:1 1 auto!important; font-size:12px!important; }
+ #soha-portal .s-profile-grid { grid-template-columns:minmax(0,1fr)!important; }
+ #soha-portal .s-check-row { line-height:1.6; }
+ #soha-portal .s-check-row small { font-size:11px; }
+ #soha-portal .s-location-confirm { padding:14px; }
+ #soha-portal .s-photo-checks .s-photo-branches { grid-template-columns:1fr; }
 }
