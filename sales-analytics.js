@@ -3,16 +3,10 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.SohaSalesAnalytics = api;
 })(globalThis, function () {
-  const bands = [
-    {min:-Infinity,max:0,label:'0℃ 미만'},
-    {min:0,max:5,label:'0–5℃'},
-    {min:5,max:10,label:'5–10℃'},
-    {min:10,max:15,label:'10–15℃'},
-    {min:15,max:20,label:'15–20℃'},
-    {min:20,max:25,label:'20–25℃'},
-    {min:25,max:30,label:'25–30℃'},
-    {min:30,max:Infinity,label:'30℃ 이상'}
-  ];
+  function temperatureBand(temperature) {
+    const min = Math.floor(temperature), max = min + 1;
+    return {min,max,label:min+'–'+max+'℃'};
+  }
   function integerHours(value) {
     return Number.isFinite(Number(value)) ? Math.floor(Math.max(0, Number(value))) : 0;
   }
@@ -37,7 +31,7 @@
     return {weekday,holiday,ratio:weekday.mean>0&&holiday.mean!==null?holiday.mean/weekday.mean*100:null};
   }
   function temperatureGroups(rows, cache, through) {
-    const groups = bands.map((band,index)=>({...band,index,days:[]}));
+    const groups = new Map();
     const days = salesDays(rows,through);
     let missing = 0;
     for (const day of days) {
@@ -45,9 +39,11 @@
       const temperatures = branches.map(branch=>cache[branch+'|'+day.date]?.meanTemperature);
       if (!temperatures.every(Number.isFinite)) { missing++; continue; }
       const temperature = temperatures.reduce((sum,value)=>sum+value,0)/temperatures.length;
-      groups.find(group=>temperature>=group.min&&temperature<group.max).days.push({...day,temperature});
+      const band = temperatureBand(temperature);
+      if (!groups.has(band.min)) groups.set(band.min, {...band,days:[]});
+      groups.get(band.min).days.push({...day,temperature});
     }
-    return {groups:groups.map(group=>({...group,...summary(group.days)})),missing,totalDays:days.length};
+    return {groups:[...groups.values()].sort((a,b)=>a.min-b.min).map((group,index)=>({...group,index,...summary(group.days)})),missing,totalDays:days.length};
   }
-  return {integerHours,salesDays,holidayComparison,temperatureGroups,bands};
+  return {integerHours,salesDays,holidayComparison,temperatureGroups,temperatureBand};
 });
