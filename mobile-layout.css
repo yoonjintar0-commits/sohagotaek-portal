@@ -4,6 +4,7 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-nav { display:flex; flex-direction:row; align-items:center; padding:8px 24px; gap:8px; overflow:auto; border-bottom:1px solid var(--s-rule); }
 #soha-portal .s-nav-title,#soha-portal .s-nav-foot { display:none; }
 #soha-portal .s-nav button { flex:none; white-space:nowrap; }
+#soha-portal .s-nav button { justify-content:center; text-align:center; }
 #soha-portal .s-my-punch { display:block; }
 #soha-portal .s-top { flex-wrap:nowrap; gap:12px; }
 #soha-portal .s-brand { min-width:0; }
@@ -172,5 +173,107 @@ html { touch-action: pan-x pan-y; }
  #soha-portal .s-daily-metrics,#soha-portal .s-kpi-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
  #soha-portal .s-daily-metrics>div,#soha-portal .s-kpi-three>div { min-width:0; padding:12px 8px; }
  #soha-portal .s-daily-metrics strong,#soha-portal .s-kpi-three strong { font-size:13px; white-space:nowrap; }
- #soha-portal .s-daily-metrics span,#soha-portal .s-kpi-three span { font-size:11px; }
+#soha-portal .s-daily-metrics span,#soha-portal .s-kpi-three span { font-size:11px; }
+}
+
+/* Consistent spacing, record tables, and attendance tools. */
+#soha-portal .s-heading-compact>div:first-child { display:none; }
+#soha-portal .s-heading-compact { margin:0 0 16px; }
+#soha-portal .s-heading-compact #soha-actions { margin:0; }
+#soha-portal .s-date-range { width:320px; max-width:100%; gap:12px; }
+#soha-portal .s-date-range label { gap:5px; align-items:stretch; font-size:11px; color:var(--s-muted); }
+#soha-portal .s-date-range input { height:38px!important; min-height:38px!important; padding:6px 8px!important; font-size:14px; }
+#soha-portal .s-finance-scope-toolbar>div { align-items:flex-end; }
+#soha-portal .s-finance-scope-toolbar label { display:flex; flex-direction:column; gap:5px; align-items:stretch; }
+#soha-portal .s-finance-scope-toolbar select,#soha-portal .s-finance-scope-toolbar .s-button { height:40px; min-height:40px; }
+#soha-portal .s-op-toolbar { align-items:flex-end; }
+#soha-portal .s-op-toolbar .s-select,#soha-portal .s-op-toolbar .s-button { height:40px; min-height:40px; }
+#soha-portal .s-plus { height:40px; min-height:40px; width:40px; min-width:40px; }
+#soha-portal .s-live-avatar-row { padding:7px 5px; min-height:58px; overflow-y:hidden; }
+#soha-portal .s-live-person:hover,#soha-portal .s-live-person:focus-visible { transform:none; }
+#soha-portal .s-live-person .s-staff-character { box-sizing:border-box; }
+#soha-portal .s-live-person:hover .s-staff-character,#soha-portal .s-live-person:focus-visible .s-staff-character,#soha-portal .s-live-person[aria-pressed=true] .s-staff-character { transform:none; outline:2px solid var(--s-wood); outline-offset:1px; }
+#soha-portal .s-live-avatar-row { gap:0; overflow:visible; }
+#soha-portal .s-live-avatar-row .s-live-person { width:34px; min-width:34px; max-width:34px; flex:0 0 34px; }
+#soha-portal .s-live-avatar-row .s-live-person:hover,#soha-portal .s-live-avatar-row .s-live-person:focus-visible { transform:none; }
+#soha-portal .s-live-avatar-row .s-live-person+.s-live-person { margin-left:min(-12px,calc((100% - 34px) / var(--stack-gaps,1) - 34px)); }
+#soha-portal .s-live-person .s-staff-character { width:32px!important; height:32px!important; }
+#soha-portal .s-live-person .s-avatar-wrap { width:32px; height:32px; }
+#soha-portal .s-kpi-three { gap:14px; padding:18px 14px; }
+#soha-portal .s-kpi-three>div { display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:8px; padding:0; }
+#soha-portal .s-kpi-three span { white-space:nowrap; margin:0; }
+#soha-portal .s-kpi-three strong { white-space:nowrap; overflow-wrap:normal; }
+#soha-portal .s-single-line-table { width:max-content; min-width:100%; border-collapse:separate; border-spacing:0; table-layout:auto; }
+#soha-portal .s-single-line-table th,#soha-portal .s-single-line-table td { white-space:nowrap; word-break:normal; overflow-wrap:normal; height:44px; padding:10px 12px; line-height:1.4; vertical-align:middle; }
+#soha-portal .s-single-line-table td>div,#soha-portal .s-single-line-table td>.s-block-muted { display:inline; margin:0 0 0 6px; }
+#soha-portal .s-single-line-table thead th { position:sticky; top:0; z-index:3; background:var(--s-soft); box-shadow:0 1px var(--s-rule); }
+#soha-portal .s-finance-ledger { min-width:1100px; }
+#soha-portal .s-stock-scroll { max-height:65vh; overflow:auto; overscroll-behavior:contain; position:relative; }
+#soha-portal .s-stock-table { min-width:720px; }
+#soha-portal .s-stock-table .s-stock-group th { text-align:left; padding:10px 12px; background:var(--s-paper); }
+#soha-portal .s-stock-table .s-stock-group th { position:sticky; top:44px; z-index:2; box-shadow:0 1px var(--s-rule); }
+#soha-portal .s-table-wrap td.s-empty { text-align:left; }
+#soha-portal .s-op-toolbar>label { display:flex; flex-direction:row; align-items:center; gap:8px; white-space:nowrap; }
+#soha-portal .s-op-toolbar>label>.s-select { width:0; flex:1; min-width:0; }
+#soha-portal .s-buy-details summary { cursor:pointer; color:var(--s-wood); font-size:12px; padding:6px 0; }
+#soha-portal .s-buy-details[open] summary { margin-bottom:12px; }
+#soha-portal .s-stock-table .s-stock-group { height:40px; }
+#soha-portal .s-expiry-soon { color:var(--s-rust); font-weight:600; }
+#soha-portal .s-mobile-roadmap .s-branch-boundary { border-left:3px solid var(--s-wood); }
+#soha-portal .s-attendance-filters { padding:16px 18px 8px; }
+#soha-portal .s-attendance-filter-row { display:flex; align-items:flex-end; gap:12px; justify-content:space-between; }
+#soha-portal .s-attendance-filter-row>label { display:flex; flex-direction:column; gap:5px; min-width:0; flex:1; max-width:260px; font-size:11px; color:var(--s-muted); }
+#soha-portal .s-attendance-filter-row .s-select,#soha-portal .s-attendance-filter-row .s-button { height:40px; min-height:40px; }
+#soha-portal .s-attendance-date-row { display:flex; align-items:flex-end; gap:10px; margin-top:12px; }
+#soha-portal .s-attendance-date-row .s-date-range { flex:1; }
+#soha-portal .s-attendance-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:14px 18px; }
+#soha-portal .s-attendance-metric { background:var(--s-soft); border-radius:8px; padding:13px 10px; min-width:0; display:flex; flex-direction:column; gap:7px; }
+#soha-portal .s-attendance-metric>span { font-size:11px; color:var(--s-muted); white-space:nowrap; }
+#soha-portal .s-attendance-metric strong { font-size:20px; white-space:nowrap; font-weight:500; font-variant-numeric:tabular-nums; }
+#soha-portal .s-attendance-metric small { font-size:11px; font-weight:400; color:var(--s-muted); margin-left:3px; }
+#soha-portal .s-diary-caption { margin:0 18px 12px; font-size:11px; color:var(--s-muted); line-height:1.7; }
+#soha-portal .s-diary-scroll { margin:0 18px; border:1px solid var(--s-rule); border-radius:8px; }
+#soha-portal .s-diary-table { min-width:750px; }
+#soha-portal .s-diary-table .s-attention,#soha-portal .s-attention { color:var(--s-rust); font-weight:700; background:color-mix(in srgb,var(--s-rust) 9%,var(--s-paper)); }
+#soha-portal .s-inline-tag { display:inline-block; font-size:10px; margin-left:5px; color:var(--s-muted); padding:1px 4px; border:1px solid var(--s-rule); border-radius:3px; }
+#soha-portal .s-diary-more { padding:14px 18px; text-align:center; }
+#soha-portal .s-recent-times { gap:4px; }
+#soha-portal .s-shift-identity-row { grid-column:1/-1; grid-template-columns:repeat(3,minmax(0,1fr)); }
+#soha-portal .s-shift-identity-row.s-own-identity { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#soha-portal .s-shift-overnight { display:flex; flex-direction:row; align-items:center; gap:16px; }
+#soha-portal .s-recent-times>span { font-size:11px; }
+#soha-portal .s-time-text { border:0; padding:4px 0; margin-right:14px; background:transparent; color:var(--s-wood); text-decoration:underline; text-underline-offset:3px; font-size:12px; min-height:30px; }
+#soha-portal .s-recent-times .s-quick { gap:0; }
+#soha-portal .s-own-identity { grid-template-columns:1fr 1fr; }
+#soha-portal .s-edit-schedule-note { padding:10px 12px; background:var(--s-soft); border-radius:6px; line-height:1.7; }
+@media(max-width:700px) {
+ #soha-portal .s-main { padding:16px!important; }
+ #soha-portal .s-date-range { width:304px; gap:10px; padding:0 2px; }
+ #soha-portal .s-date-range input { font-size:16px!important; }
+ #soha-portal .s-heading-compact #soha-actions { margin:0; }
+ #soha-portal .s-attendance-filters { padding:14px 14px 6px; }
+ #soha-portal .s-attendance-metrics { padding:12px 14px; gap:7px; }
+ #soha-portal .s-attendance-metric { padding:12px 8px; }
+ #soha-portal .s-attendance-metric>span { font-size:10px; }
+ #soha-portal .s-attendance-metric strong { font-size:clamp(14px,3.9vw,17px); }
+ #soha-portal .s-diary-caption { margin:0 14px 10px; }
+ #soha-portal .s-diary-scroll { margin:0 14px; }
+ #soha-portal .s-attendance-filter-row .s-button { font-size:12px; padding:8px; }
+ #soha-portal .s-attendance-filter-row .s-select { font-size:16px; width:100%; }
+ #soha-portal .s-attendance-date-row { gap:4px; }
+ #soha-portal .s-attendance-date-row .s-date-range { width:100%; gap:6px; }
+ #soha-portal .s-attendance-date-row .s-button { padding:5px; font-size:11px; }
+ #soha-portal .s-kpi-three { padding:16px 12px; gap:10px; }
+ #soha-portal .s-kpi-three>div { padding:0; gap:7px; align-items:flex-start; }
+ #soha-portal .s-kpi-three strong { font-size:clamp(12px,3.2vw,16px); }
+ #soha-portal .s-kpi-three span { font-size:11px; }
+ #soha-portal .s-daily-metrics { gap:6px; }
+ #soha-portal .s-daily-metrics>.s-metric { padding:12px 8px; }
+ #soha-portal .s-daily-metrics .s-metric-value { font-size:clamp(12px,3.3vw,15px); white-space:nowrap; }
+ #soha-portal .s-daily-metrics .s-metric-label { font-size:11px; white-space:nowrap; }
+ #soha-portal .s-daily-metrics .s-metric-value small { font-size:10px; }
+ #soha-portal .s-finance-scope-toolbar>div { gap:8px; }
+ #soha-portal .s-finance-scope-toolbar label { font-size:11px; text-align:left; }
+ #soha-portal .s-finance-scope-toolbar select,#soha-portal .s-finance-scope-toolbar .s-button { height:40px; min-height:40px; }
+ #soha-portal .s-finance-scope-toolbar>div>.s-button:not(.s-plus) { font-size:12px; padding:7px; }
 }
