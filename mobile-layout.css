@@ -177,6 +177,10 @@ html { touch-action: pan-x pan-y; }
 }
 
 /* Consistent spacing, record tables, and attendance tools. */
+#soha-portal .s-photo-avatar { background-color:var(--s-soft); background-repeat:no-repeat; }
+#soha-portal .s-avatar-picker.s-avatar-preview { display:flex; align-items:center; gap:16px; padding:16px; grid-column:1/-1; }
+#soha-portal .s-avatar-preview .s-staff-character { flex-shrink:0; }
+#soha-portal .s-avatar-preview p { margin:0; font-size:12px; line-height:1.7; color:var(--s-muted); }
 #soha-portal .s-heading-compact>div:first-child { display:none; }
 #soha-portal .s-heading-compact { margin:0 0 16px; }
 #soha-portal .s-heading-compact #soha-actions { margin:0; }
