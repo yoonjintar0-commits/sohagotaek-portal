@@ -1,0 +1,176 @@
+/* Shared compact controls and mobile schedule. */
+html { touch-action: pan-x pan-y; }
+#soha-portal .s-shell:not([hidden]) { display:block; }
+#soha-portal .s-nav { display:flex; flex-direction:row; align-items:center; padding:8px 24px; gap:8px; overflow:auto; border-bottom:1px solid var(--s-rule); }
+#soha-portal .s-nav-title,#soha-portal .s-nav-foot { display:none; }
+#soha-portal .s-nav button { flex:none; white-space:nowrap; }
+#soha-portal .s-my-punch { display:block; }
+#soha-portal .s-top { flex-wrap:nowrap; gap:12px; }
+#soha-portal .s-brand { min-width:0; }
+#soha-portal .s-account-menu { position:relative; display:flex; align-items:center; gap:5px; margin-left:auto; flex:none; border:0; background:transparent; color:var(--s-ink); padding:3px; cursor:pointer; min-height:44px; font:inherit; font-size:13px; white-space:nowrap; }
+#soha-portal .s-account-menu .s-staff-character { width:32px!important; height:32px!important; min-width:32px; }
+#soha-portal .s-account-badge { position:absolute; right:-5px; top:-4px; background:#a84935; color:#fff; border:2px solid var(--s-paper); border-radius:20px; min-width:20px; height:20px; font-size:11px; display:grid; place-items:center; }
+#soha-portal .s-account-summary { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+#soha-portal .s-account-summary h3,#soha-portal .s-account-summary p { margin:3px 0; }
+#soha-portal .s-account-actions { display:flex; gap:6px; margin-bottom:18px; }
+#soha-portal .s-account-alerts h3 { font-size:16px; }
+#soha-portal .s-account-alerts .s-request-card>div:first-child { display:flex; flex-wrap:wrap; gap:8px; justify-content:space-between; }
+#soha-portal .s-nav { flex-wrap:nowrap!important; }
+#soha-portal .s-heading { align-items:flex-start; gap:10px; }
+#soha-portal .s-heading>div:first-child { min-width:0; }
+#soha-portal #soha-actions { flex-wrap:nowrap; }
+#soha-portal .s-date-range { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; width:min(100%,440px); }
+#soha-portal .s-date-range label { display:flex; flex-direction:column; gap:4px; min-width:0; font-size:12px; }
+#soha-portal .s-date-range input { min-width:0; width:100%; box-sizing:border-box; font-size:16px; }
+#soha-portal .s-plus { width:44px; min-width:44px; padding:0!important; margin-left:auto; font-size:24px!important; line-height:1; }
+#soha-portal .s-op-tabs { display:flex; flex-wrap:nowrap!important; gap:6px; align-items:center; overflow:auto; }
+#soha-portal .s-op-tabs .s-button { white-space:nowrap; flex-shrink:0; }
+#soha-portal .s-op-toolbar,#soha-portal .s-finance-scope-toolbar>div { display:flex; flex-wrap:nowrap; align-items:center; gap:8px; }
+#soha-portal .s-op-toolbar label,#soha-portal .s-finance-scope-toolbar label { min-width:0; }
+#soha-portal .s-op-toolbar select { max-width:100%; }
+#soha-portal .s-finance-scope-toolbar .s-plus { margin-left:auto; }
+#soha-portal .s-punch-selection { width:100%; margin:10px 0 6px; }
+#soha-portal .s-punch-selection select { width:100%; font-size:16px; }
+#soha-portal .s-punch-buttons { display:flex; flex-wrap:nowrap; gap:6px; width:100%; }
+#soha-portal .s-punch-buttons>.s-button { flex:1; min-width:0; padding:8px 6px; white-space:nowrap; }
+#soha-portal .s-punch-buttons>[data-punch] { flex:2.2; }
+#soha-portal .s-punch-photo { display:flex; gap:6px; align-items:center; margin-top:8px; }
+#soha-portal .s-date-shortcuts { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:5px; margin:10px 16px 5px; }
+#soha-portal .s-date-shortcuts .s-button { min-width:0; padding:7px 3px; white-space:nowrap; }
+#soha-portal .s-date-shortcuts [aria-pressed=true] { background:var(--s-wood); color:var(--s-paper); }
+#soha-portal .s-live-callout { padding:10px!important; }
+#soha-portal .s-live-callout-head { gap:3px; }
+#soha-portal .s-live-avatar-row { display:flex!important; flex-wrap:nowrap!important; align-items:center; padding-left:3px; min-height:44px; }
+#soha-portal .s-live-avatar-row .s-live-person { flex:none; width:44px; min-height:44px!important; padding:0; border:0; border-radius:50%; position:relative; }
+#soha-portal .s-live-avatar-row .s-live-person+.s-live-person { margin-left:-13px; }
+#soha-portal .s-live-avatar-row .s-live-person:hover,#soha-portal .s-live-avatar-row .s-live-person:focus-visible { z-index:2; transform:translateY(-2px); }
+#soha-portal .s-live-person .s-staff-character { width:40px!important; height:40px!important; }
+#soha-portal .s-live-person .s-avatar-wrap { width:40px; height:40px; }
+#soha-portal .s-live-person .s-occasion-icons { font-size:12px; }
+#soha-portal .s-live-others { margin-top:3px!important; padding-top:4px!important; }
+#soha-portal .s-live-clock-count { margin:5px 0 0!important; }
+#soha-portal .s-live-sales { padding-top:6px!important; margin-top:5px!important; }
+#soha-portal .s-live-sales span,#soha-portal .s-live-sales strong { white-space:nowrap; }
+#soha-portal .s-weekday-grid { grid-template-columns:repeat(7,minmax(0,1fr))!important; }
+#soha-portal .s-weekday-short { display:none; }
+#soha-portal .s-mobile-roadmap-controls { display:flex; align-items:center; gap:7px; padding:10px 0; }
+#soha-portal .s-mobile-roadmap-controls label { display:flex; align-items:center; gap:5px; font-size:13px; }
+#soha-portal .s-mobile-roadmap-controls input { width:145px; font-size:16px; }
+#soha-portal .s-branch-chips { display:flex; flex-wrap:nowrap; gap:5px; overflow:auto; padding-bottom:8px; }
+#soha-portal .s-branch-chips button { flex-shrink:0; }
+#soha-portal .s-branch-chips [aria-pressed=true] { background:var(--s-soft); border-color:var(--s-wood); }
+#soha-portal .s-mobile-roadmap-wrap { overflow:auto; position:relative; border-radius:12px; }
+#soha-portal .s-mobile-roadmap { border-collapse:separate; border-spacing:0; table-layout:fixed; width:max-content!important; min-width:100%; }
+#soha-portal .s-mobile-roadmap th,#soha-portal .s-mobile-roadmap td { width:86px; min-width:86px; max-width:86px; padding:6px!important; text-align:center; border-bottom:1px solid var(--s-rule); border-right:1px solid var(--s-rule); vertical-align:middle; }
+#soha-portal .s-mobile-roadmap .s-date-column { width:62px; min-width:62px; max-width:62px; position:sticky; left:0; z-index:2; background:var(--s-paper); }
+#soha-portal .s-mobile-roadmap thead th { position:sticky; top:0; z-index:3; background:var(--s-soft); height:44px; }
+#soha-portal .s-mobile-roadmap thead tr:nth-child(2) th { top:44px; height:68px; }
+#soha-portal .s-mobile-roadmap thead .s-date-column { z-index:4; }
+#soha-portal .s-mobile-roadmap thead button { color:inherit; background:none; border:0; width:100%; min-height:44px; font:inherit; font-size:12px; cursor:pointer; }
+#soha-portal .s-mobile-roadmap .s-staff-character { display:block; width:30px!important; height:30px!important; margin:0 auto 3px; }
+#soha-portal .s-mobile-roadmap .s-date-column small,#soha-portal .s-mobile-roadmap td small { display:block; font-size:11px; color:var(--s-muted); }
+#soha-portal .s-mobile-roadmap .s-today>.s-date-column { color:var(--s-wood); background:var(--s-soft); }
+#soha-portal .s-mobile-roadmap .s-mobile-shift,#soha-portal .s-mobile-roadmap .s-mobile-store-day { display:block; width:100%; border:0; border-radius:5px; min-height:48px; padding:5px 2px; background:var(--s-soft); color:var(--s-ink); font:inherit; font-size:12px; cursor:pointer; margin:2px 0; }
+#soha-portal .s-mobile-roadmap .s-mobile-shift.dispatch { border-left:3px solid var(--s-wood); }
+#soha-portal .s-mobile-roadmap .s-mobile-store-day { background:transparent; }
+#soha-portal .s-mobile-roadmap .s-mobile-add { border:1px dashed var(--s-rule); color:var(--s-muted); background:transparent; font-size:22px; }
+#soha-portal .s-mobile-roadmap-footer { display:flex; flex-wrap:nowrap; align-items:center; justify-content:space-between; gap:8px; padding:12px; }
+#soha-portal .s-mobile-roadmap-footer span { text-align:center; font-size:12px; }
+#soha-portal .s-mobile-roadmap-footer small { display:block; color:var(--s-muted); }
+@media(max-width:700px) {
+#soha-portal .s-top { padding:12px!important; }
+#soha-portal .s-logo { width:28px!important; height:48px!important; }
+#soha-portal .s-brand { gap:9px; }
+#soha-portal .s-brand-title { font-size:17px!important; white-space:nowrap; }
+#soha-portal .s-brand small { display:none; }
+#soha-portal .s-account-menu { font-size:12px; gap:3px; }
+#soha-portal .s-account-menu .s-staff-character { width:28px!important; height:28px!important; min-width:28px; }
+#soha-portal .s-shell:not([hidden]) { display:block!important; }
+#soha-portal .s-nav { display:flex!important; padding:5px 8px!important; gap:2px!important; overflow:auto; border-bottom:1px solid var(--s-rule); }
+#soha-portal .s-nav button { flex:1 0 auto; margin:0!important; padding:8px 5px!important; font-size:13px!important; min-height:44px; width:auto!important; white-space:nowrap; text-align:center; }
+#soha-portal .s-nav-title,#soha-portal .s-nav-foot { display:none!important; }
+#soha-portal .s-main { padding:15px 12px!important; min-width:0; }
+#soha-portal .s-heading { display:block!important; }
+#soha-portal .s-heading h1 { font-size:24px; }
+#soha-portal .s-heading p { font-size:13px; margin-bottom:10px; }
+#soha-portal #soha-actions { width:100%; gap:6px; margin:8px 0 0; }
+#soha-portal #soha-actions .s-pill { font-size:11px; padding:7px; white-space:nowrap; }
+#soha-portal #soha-actions .s-button { font-size:12px; padding:8px; white-space:nowrap; }
+#soha-portal .s-date-range { width:100%; gap:7px; }
+#soha-portal .s-date-range input { padding:8px 5px!important; height:44px; }
+#soha-portal .s-op-tabs .s-button { padding:8px 9px; font-size:13px; }
+#soha-portal .s-op-tabs { gap:4px; }
+#soha-portal .s-op-tabs .s-plus { flex-shrink:0; }
+#soha-portal .s-op-toolbar { justify-content:space-between; gap:7px; }
+#soha-portal .s-op-toolbar label { display:flex; align-items:center; gap:6px; flex:1; }
+#soha-portal .s-op-toolbar label select { min-width:0; width:100%; font-size:16px; }
+#soha-portal .s-finance-scope-toolbar { gap:8px; }
+#soha-portal .s-finance-scope-toolbar>div { width:100%; gap:6px; }
+#soha-portal .s-finance-scope-toolbar label { flex:1; display:flex; flex-direction:column; }
+#soha-portal .s-finance-scope-toolbar select { width:100%; min-width:0; font-size:16px; }
+#soha-portal .s-finance-scope-toolbar>div>.s-button:not(.s-plus) { padding:8px; font-size:13px; white-space:nowrap; }
+#soha-portal .s-my-punch { padding:12px!important; display:block!important; }
+#soha-portal .s-my-punch h2 { font-size:17px!important; }
+#soha-portal .s-my-punch p { font-size:13px; }
+#soha-portal .s-punch-buttons .s-button { font-size:13px; }
+#soha-portal .s-punch-buttons [data-punch] { font-size:15px; }
+#soha-portal .s-date-shortcuts { margin:8px 10px 4px; gap:4px; }
+#soha-portal .s-date-shortcuts .s-button { font-size:12px; padding:7px 1px; }
+#soha-portal .s-live-site-name { font-size:14px!important; }
+#soha-portal .s-live-callout-head { flex-wrap:wrap; }
+#soha-portal .s-live-state { font-size:10px!important; }
+#soha-portal .s-live-clock-count,#soha-portal .s-live-others>.s-small { font-size:11px!important; }
+#soha-portal .s-live-sales span { font-size:10px; }
+#soha-portal .s-live-sales strong { font-size:12px; }
+#soha-portal .s-live-sales { display:flex; flex-direction:column; gap:2px; }
+#soha-portal .s-home-map-credit { font-size:9px; }
+#soha-portal .s-weekday-grid { gap:3px!important; padding:10px 6px!important; }
+#soha-portal .s-weekday-grid>div { min-width:0; min-height:0; padding:8px 1px!important; text-align:center; }
+#soha-portal .s-weekday-grid>div>span:first-child { font-size:13px; }
+#soha-portal .s-weekday-grid strong { font-size:11px!important; letter-spacing:-.5px; white-space:nowrap; }
+#soha-portal .s-weekday-grid small { font-size:10px; white-space:nowrap; }
+#soha-portal .s-weekday-grid .s-recent-seven { font-size:10px; white-space:nowrap; }
+#soha-portal .s-weekday-grid .s-recent-seven b { font-size:10px; letter-spacing:-.5px; }
+#soha-portal .s-weekday-full { display:none; }
+#soha-portal .s-weekday-short { display:inline; }
+#soha-portal .s-panel-head { gap:8px; }
+#soha-portal .s-panel-head h2 { font-size:16px; }
+#soha-portal .s-panel-head>.s-small { font-size:11px; }
+#soha-portal .s-segment { display:flex; flex-wrap:nowrap; }
+#soha-portal .s-photo-branches { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#soha-portal .s-account-actions .s-button { flex:1; font-size:13px; white-space:nowrap; }
+#soha-portal input.s-select { font-size:16px!important; }
+}
+
+#soha-portal .s-live-callout-head { display:flex; flex-wrap:nowrap; align-items:center; margin:0; gap:3px; }
+#soha-portal .s-live-site-name { flex:1; min-width:0; min-height:44px; white-space:nowrap; }
+#soha-portal .s-live-state { flex:none; margin:0; }
+#soha-portal .s-live-sales { line-height:1.4; }
+#soha-portal .s-live-others>.s-small { line-height:1.4; }
+#soha-portal .s-weekday-grid .s-weekday-full { display:inline; }
+#soha-portal .s-weekday-grid .s-weekday-short { display:none; }
+@media(max-width:700px) {
+ #soha-portal .s-weekday-grid .s-weekday-full { display:none; }
+ #soha-portal .s-weekday-grid .s-weekday-short { display:inline; }
+ #soha-portal .s-live-state { font-size:9px!important; }
+ #soha-portal .s-live-site-name { font-size:13px!important; }
+}
+
+#soha-portal .s-live-roster { display:flex; align-items:flex-start; gap:6px; }
+#soha-portal .s-live-group,#soha-portal .s-live-others { flex:1; min-width:0; }
+#soha-portal .s-live-others { margin:5px 0 0!important; padding:0!important; border:0; }
+#soha-portal .s-live-others>.s-small { display:block; line-height:17px; }
+#soha-portal .s-live-clock-count { line-height:17px; }
+#soha-portal .s-live-avatar-row { overflow-x:auto; scrollbar-width:none; padding-left:0; }
+#soha-portal .s-live-avatar-row::-webkit-scrollbar { display:none; }
+#soha-portal .s-live-avatar-row .s-live-person { width:36px; }
+#soha-portal .s-live-avatar-row .s-live-person+.s-live-person { margin-left:-18px; }
+#soha-portal .s-live-person .s-staff-character { width:34px!important; height:34px!important; }
+#soha-portal .s-live-person .s-avatar-wrap { width:34px; height:34px; }
+#soha-portal .s-live-sales { line-height:1.25; }
+@media(max-width:700px) {
+ #soha-portal .s-daily-metrics,#soha-portal .s-kpi-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ #soha-portal .s-daily-metrics>div,#soha-portal .s-kpi-three>div { min-width:0; padding:12px 8px; }
+ #soha-portal .s-daily-metrics strong,#soha-portal .s-kpi-three strong { font-size:13px; white-space:nowrap; }
+ #soha-portal .s-daily-metrics span,#soha-portal .s-kpi-three span { font-size:11px; }
+}
