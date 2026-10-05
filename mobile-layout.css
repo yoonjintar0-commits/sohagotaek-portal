@@ -20,9 +20,15 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-heading { align-items:flex-start; gap:10px; }
 #soha-portal .s-heading>div:first-child { min-width:0; }
 #soha-portal #soha-actions { flex-wrap:nowrap; }
-#soha-portal .s-date-range { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; width:min(100%,440px); }
-#soha-portal .s-date-range label { display:flex; flex-direction:column; gap:4px; min-width:0; font-size:12px; }
-#soha-portal .s-date-range input { min-width:0; width:100%; box-sizing:border-box; font-size:16px; }
+#soha-portal .s-date-range { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:280px; max-width:100%; padding:0; gap:12px; flex-shrink:1; }
+#soha-portal .s-date-range label { display:flex; flex-direction:column; align-items:stretch; min-width:0; gap:4px; font-size:11px; color:var(--s-muted); }
+/* Native date controls are overlays: Safari's internal fields cannot size the row. */
+#soha-portal .s-date-control { position:relative; display:flex; align-items:center; justify-content:space-between; gap:6px; height:34px; min-width:0; box-sizing:border-box; padding:0 8px; border:1px solid var(--s-rule); border-radius:6px; background:var(--s-paper); color:var(--s-ink); font-size:13px; line-height:1; isolation:isolate; overflow:hidden; }
+#soha-portal .s-date-display { min-width:0; white-space:nowrap; font-variant-numeric:tabular-nums; }
+#soha-portal .s-date-control svg { width:12px; height:12px; flex:none; color:var(--s-muted); }
+#soha-portal .s-date-control input[type=date] { position:absolute; inset:0; display:block; width:100%; min-width:0; min-inline-size:0; max-width:100%; height:100%; min-height:0; margin:0; padding:0; border:0; box-sizing:border-box; opacity:0; font-size:16px; cursor:pointer; z-index:1; }
+#soha-portal .s-date-control input::-webkit-calendar-picker-indicator { position:absolute; inset:0; width:100%; height:100%; margin:0; padding:0; opacity:0; cursor:pointer; }
+#soha-portal .s-date-control:focus-within { outline:2px solid var(--s-wood); outline-offset:2px; }
 #soha-portal .s-plus { width:44px; min-width:44px; padding:0!important; margin-left:auto; font-size:24px!important; line-height:1; }
 #soha-portal .s-op-tabs { display:flex; flex-wrap:nowrap!important; gap:6px; align-items:center; overflow:auto; }
 #soha-portal .s-op-tabs .s-button { white-space:nowrap; flex-shrink:0; }
@@ -98,8 +104,6 @@ html { touch-action: pan-x pan-y; }
 #soha-portal #soha-actions { width:100%; gap:6px; margin:8px 0 0; }
 #soha-portal #soha-actions .s-pill { font-size:11px; padding:7px; white-space:nowrap; }
 #soha-portal #soha-actions .s-button { font-size:12px; padding:8px; white-space:nowrap; }
-#soha-portal .s-date-range { width:100%; gap:7px; }
-#soha-portal .s-date-range input { padding:8px 5px!important; height:44px; }
 #soha-portal .s-op-tabs .s-button { padding:8px 9px; font-size:13px; }
 #soha-portal .s-op-tabs { gap:4px; }
 #soha-portal .s-op-tabs .s-plus { flex-shrink:0; }
@@ -186,9 +190,6 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-heading-compact>div:first-child { display:none; }
 #soha-portal .s-heading-compact { margin:0 0 16px; }
 #soha-portal .s-heading-compact #soha-actions { margin:0; }
-#soha-portal .s-date-range { width:320px; max-width:100%; gap:12px; }
-#soha-portal .s-date-range label { gap:5px; align-items:stretch; font-size:11px; color:var(--s-muted); }
-#soha-portal .s-date-range input { height:38px!important; min-height:38px!important; padding:6px 8px!important; font-size:14px; }
 #soha-portal .s-finance-scope-toolbar>div { align-items:flex-end; }
 #soha-portal .s-finance-scope-toolbar label { display:flex; flex-direction:column; gap:5px; align-items:stretch; }
 #soha-portal .s-finance-scope-toolbar select,#soha-portal .s-finance-scope-toolbar .s-button { height:40px; min-height:40px; }
@@ -254,8 +255,6 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-edit-schedule-note { padding:10px 12px; background:var(--s-soft); border-radius:6px; line-height:1.7; }
 @media(max-width:700px) {
  #soha-portal .s-main { padding:16px!important; }
- #soha-portal .s-date-range { width:304px; gap:10px; padding:0 2px; }
- #soha-portal .s-date-range input { font-size:16px!important; }
  #soha-portal .s-heading-compact #soha-actions { margin:0; }
  #soha-portal .s-attendance-filters { padding:14px 14px 6px; }
  #soha-portal .s-attendance-metrics { padding:12px 14px; gap:7px; }
@@ -266,8 +265,8 @@ html { touch-action: pan-x pan-y; }
  #soha-portal .s-diary-scroll { margin:0 14px; }
  #soha-portal .s-attendance-filter-row .s-button { font-size:12px; padding:8px; }
  #soha-portal .s-attendance-filter-row .s-select { font-size:16px; width:100%; }
- #soha-portal .s-attendance-date-row { gap:4px; }
- #soha-portal .s-attendance-date-row .s-date-range { width:100%; gap:6px; }
+ #soha-portal .s-attendance-date-row { gap:8px; }
+ #soha-portal .s-attendance-date-row .s-date-control { padding:0 5px; gap:3px; font-size:12px; }
  #soha-portal .s-attendance-date-row .s-button { padding:5px; font-size:11px; }
  #soha-portal .s-kpi-three { padding:16px 12px; gap:10px; }
  #soha-portal .s-kpi-three>div { padding:0; gap:7px; align-items:flex-start; }
@@ -294,10 +293,6 @@ body.soha-standalone #soha-portal { overflow:visible; }
 #soha-portal .s-main { scroll-margin-top:var(--s-header-height,120px); }
 #soha-portal .s-overlay { position:fixed; z-index:100; }
 #soha-portal .s-modal { z-index:101; }
-#soha-portal .s-date-range { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr)); width:min(320px,100%); max-width:100%; padding:0; gap:14px!important; }
-#soha-portal .s-date-range label { display:flex; flex-direction:column; min-width:0!important; gap:5px; }
-#soha-portal .s-date-range input { display:block; width:100%!important; min-width:0!important; min-inline-size:0!important; max-width:100%!important; box-sizing:border-box; }
-#soha-portal .s-date-range input::-webkit-date-and-time-value { text-align:left; }
 #soha-portal .s-date-shortcuts { display:grid!important; grid-template-columns:repeat(6,minmax(0,1fr)); gap:4px; width:calc(100% - 24px); max-width:calc(100% - 24px); margin:10px 12px 8px!important; }
 #soha-portal .s-date-shortcuts .s-button { width:100%; min-width:0!important; min-inline-size:0; max-width:100%; padding:7px 0!important; font-size:12px; min-height:34px; }
 #soha-portal .s-inventory-section+.s-inventory-section { margin-top:22px!important; }
@@ -371,11 +366,32 @@ body.soha-standalone #soha-portal { overflow:visible; }
 #soha-portal .s-photo-checks .s-photo-branches>div { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:7px; }
 #soha-portal .s-photo-checks small { display:block; font-size:11px; color:var(--s-muted); }
 @media(max-width:700px) {
- #soha-portal .s-date-range { gap:12px!important; }
  #soha-portal .s-nav button { min-width:0; flex:1 1 auto!important; font-size:12px!important; }
  #soha-portal .s-profile-grid { grid-template-columns:minmax(0,1fr)!important; }
  #soha-portal .s-check-row { line-height:1.6; }
  #soha-portal .s-check-row small { font-size:11px; }
  #soha-portal .s-location-confirm { padding:14px; }
  #soha-portal .s-photo-checks .s-photo-branches { grid-template-columns:1fr; }
+}
+
+/* One semantic palette for the product bars and their legend. */
+#soha-portal { --s-product-sale:light-dark(#557a69,#83baa0); --s-product-loss:light-dark(#b4474e,#ed8d94); }
+#soha-portal .s-product-bar-track>span,#soha-portal .s-product-track>span,#soha-portal .s-product-legend i:not(.loss) { background:var(--s-product-sale); }
+#soha-portal .s-product-bar-track>i,#soha-portal .s-product-track>i,#soha-portal .s-product-legend i.loss { background:var(--s-product-loss); }
+
+@media(max-width:700px) {
+ html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+ #soha-portal { --s-mobile-text:13px; --s-mobile-note:11px; --s-mobile-title:15px; --s-mobile-number:18px; font-size:var(--s-mobile-text); line-height:1.5; }
+ #soha-portal h1,#soha-portal h2,#soha-portal h3,#soha-portal .s-panel-head h2,#soha-portal .s-my-punch h2,#soha-portal .s-hero-text h2,#soha-portal .s-login-intro h2 { font-size:var(--s-mobile-title)!important; line-height:1.5; }
+ #soha-portal p,#soha-portal .s-body,#soha-portal .s-table td,#soha-portal .s-table th,#soha-portal .s-table-link,#soha-portal .s-note,#soha-portal .s-person-data,#soha-portal .s-request-card,#soha-portal .s-store-info { font-size:var(--s-mobile-text); }
+ #soha-portal .s-small,#soha-portal .s-field>span,#soha-portal .s-metric-label,#soha-portal .s-product-summary span,#soha-portal .s-product-summary small,#soha-portal .s-block-muted { font-size:var(--s-mobile-note); }
+ #soha-portal .s-button,#soha-portal .s-op-tabs .s-button,#soha-portal #soha-actions .s-button,#soha-portal .s-table-link { font-size:var(--s-mobile-text); }
+ #soha-portal .s-metric-value,#soha-portal .s-product-summary strong,#soha-portal .s-site-number,#soha-portal .s-category-total,#soha-portal .s-map-detail-times strong { font-size:var(--s-mobile-number); line-height:1.4; letter-spacing:0; }
+ #soha-portal .s-metric-value small,#soha-portal .s-category-total small { font-size:var(--s-mobile-note); }
+ #soha-portal .s-select,#soha-portal .s-form input:not([type=checkbox]):not([type=radio]),#soha-portal .s-form select,#soha-portal .s-form textarea { font-size:16px; }
+ #soha-portal .s-date-range { flex:none; width:min(280px,100%); }
+ #soha-portal .s-attendance-date-row .s-date-range { flex:1; }
+ #soha-portal .s-date-control { font-size:13px; }
+ #soha-portal .s-mobile-roadmap-controls .s-date-control { width:134px; }
+ #soha-portal .s-mobile-roadmap-controls label { font-size:var(--s-mobile-note); }
 }
