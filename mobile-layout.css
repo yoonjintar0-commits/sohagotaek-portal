@@ -296,7 +296,14 @@ body.soha-standalone #soha-portal { overflow:visible; }
 #soha-portal .s-date-shortcuts { display:grid!important; grid-template-columns:repeat(6,minmax(0,1fr)); gap:4px; width:calc(100% - 24px); max-width:calc(100% - 24px); margin:10px 12px 8px!important; }
 #soha-portal .s-date-shortcuts .s-button { width:100%; min-width:0!important; min-inline-size:0; max-width:100%; padding:7px 0!important; font-size:12px; min-height:34px; }
 #soha-portal .s-inventory-section+.s-inventory-section { margin-top:22px!important; }
-#soha-portal .s-buy-details { margin-top:18px; padding-top:12px; border-top:1px solid var(--s-rule); }
+#soha-portal .s-buy-list .s-panel-head { border-bottom:0; }
+#soha-portal .s-buy-details { margin-top:0; padding-top:0; border-top:0; }
+#soha-portal .s-buy-details summary { display:flex; align-items:center; gap:12px; list-style:none; }
+#soha-portal .s-buy-details summary::-webkit-details-marker { display:none; }
+#soha-portal .s-buy-preview { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+#soha-portal .s-buy-toggle { flex-shrink:0; font-size:12px; }
+#soha-portal .s-buy-details[open] .s-buy-toggle { font-size:0; }
+#soha-portal .s-buy-details[open] .s-buy-toggle::after { content:'접기'; font-size:12px; }
 #soha-portal .s-live-callout { padding:7px!important; border-radius:10px; }
 #soha-portal .s-live-callout-head { gap:3px; }
 #soha-portal .s-live-site-name { min-height:28px!important; font-size:12px!important; }
@@ -374,7 +381,31 @@ body.soha-standalone #soha-portal { overflow:visible; }
  #soha-portal .s-photo-checks .s-photo-branches { grid-template-columns:1fr; }
 }
 
+/* Map cards keep the branch name and status on separate lines. */
+#soha-portal .s-home-callouts .s-live-callout-head { display:grid; grid-template-columns:minmax(0,1fr); align-items:start; gap:2px; }
+#soha-portal .s-home-callouts .s-live-site-name { min-width:0; width:100%; white-space:normal; word-break:keep-all; line-height:1.4; text-align:left; }
+#soha-portal .s-home-callouts .s-live-state { justify-self:start; max-width:100%; white-space:normal; line-height:1.4; }
+#soha-portal .s-live-site-name[data-map-index]::before { content:attr(data-map-index); display:inline-grid; place-items:center; width:14px; height:14px; margin-right:4px; vertical-align:1px; background:var(--s-wood); color:var(--s-paper); border-radius:50%; font-size:9px; }
+#soha-portal .s-map-house[data-map-index]::after { content:attr(data-map-index); position:absolute; right:-4px; bottom:-6px; display:grid; place-items:center; width:18px; height:18px; border:2px solid var(--s-paper); border-radius:50%; background:var(--s-wood); color:var(--s-paper); font-size:10px; }
+#soha-portal .s-heading-compact:has(#soha-actions:empty) { display:none!important; }
+
 /* One semantic palette for the product bars and their legend. */
+#soha-portal .s-vs-table { min-width:360px; width:100%; }
+#soha-portal .s-vs-table th,#soha-portal .s-vs-table td { white-space:nowrap; padding:10px 8px; font-size:12px; }
+#soha-portal .s-stat-link { border:0; background:none; padding:4px 0; color:var(--s-wood); font:inherit; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
+#soha-portal .s-stat-link:focus-visible,#soha-portal .s-temperature-stat:focus-visible { outline:2px solid var(--s-wood); outline-offset:2px; }
+#soha-portal .s-temperature-bars { display:grid; gap:10px; padding:14px; }
+#soha-portal .s-temperature-stat { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:5px 10px; align-items:center; border:0; border-radius:4px; background:none; padding:4px 0; text-align:left; color:var(--s-ink); font:inherit; cursor:pointer; }
+#soha-portal .s-temperature-stat>span:first-child { white-space:nowrap; }
+#soha-portal .s-temperature-stat strong { font-size:13px; font-weight:500; white-space:nowrap; }
+#soha-portal .s-temperature-stat .s-track { grid-column:1/-1; display:block; }
+#soha-portal .s-temperature-stat .s-fill { display:block; height:100%; }
+#soha-portal .s-temperature-status { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; justify-content:space-between; }
+#soha-portal .s-temperature-status .s-stat-link { font-size:12px; white-space:nowrap; }
+#soha-portal .s-temperature-comparison .s-panel-foot { display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; }
+#soha-portal .s-analytics-memo { line-height:1.7; }
+#soha-portal .s-temperature-memo-table { min-width:300px; width:100%; }
+#soha-portal .s-temperature-memo-table th,#soha-portal .s-temperature-memo-table td { white-space:nowrap; }
 #soha-portal { --s-product-sale:light-dark(#557a69,#83baa0); --s-product-loss:light-dark(#b4474e,#ed8d94); }
 #soha-portal .s-product-bar-track>span,#soha-portal .s-product-track>span,#soha-portal .s-product-legend i:not(.loss) { background:var(--s-product-sale); }
 #soha-portal .s-product-bar-track>i,#soha-portal .s-product-track>i,#soha-portal .s-product-legend i.loss { background:var(--s-product-loss); }
