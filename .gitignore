@@ -2,3 +2,4 @@
 *private*
 seed*.json
 node_modules/
+supabase/.temp/
