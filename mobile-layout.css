@@ -39,6 +39,7 @@ html { touch-action: pan-x pan-y; }
 #soha-portal .s-punch-selection { width:100%; margin:10px 0 6px; }
 #soha-portal .s-punch-selection select { width:100%; font-size:16px; }
 #soha-portal .s-punch-buttons { display:flex; flex-wrap:nowrap; gap:6px; width:100%; }
+#soha-portal .s-my-punch>.s-punch-buttons { margin-top:18px; }
 #soha-portal .s-punch-buttons>.s-button { flex:1; min-width:0; padding:8px 6px; white-space:nowrap; }
 #soha-portal .s-punch-buttons>[data-punch] { flex:2.2; }
 #soha-portal .s-punch-photo { display:flex; gap:6px; align-items:center; margin-top:8px; }
@@ -368,6 +369,12 @@ body.soha-standalone #soha-portal { overflow:visible; }
 #soha-portal .s-mobile-roadmap .s-mobile-store-day { background:none!important; padding:2px 0; margin:0; }
 #soha-portal .s-mobile-roadmap .s-mobile-branch-head th:not(.s-date-column)>button { display:block; position:sticky; left:68px; width:max-content!important; max-width:100%; padding:6px; text-align:left; }
 #soha-portal .s-mobile-roadmap tbody td:not(.s-mobile-store-column) { background:var(--s-paper); }
+#soha-portal { --s-roadmap-header:#64513f; --s-roadmap-header-text:#fffaf0; --s-roadmap-header-rule:#a9967f; }
+#soha-portal .s-roadmap thead th,#soha-portal .s-roadmap thead th:first-child,#soha-portal .s-mobile-roadmap thead th,#soha-portal .s-mobile-roadmap thead .s-mobile-store-column,#soha-portal .s-mobile-roadmap .s-mobile-branch-head th { background:var(--s-roadmap-header)!important; color:var(--s-roadmap-header-text); border-color:var(--s-roadmap-header-rule); }
+#soha-portal .s-roadmap thead small,#soha-portal .s-roadmap thead .s-hour-ruler,#soha-portal .s-mobile-roadmap thead small,#soha-portal .s-mobile-roadmap thead button { color:var(--s-roadmap-header-text)!important; }
+#soha-portal .s-mobile-roadmap thead small { display:block; margin-top:3px; }
+#soha-portal .s-mobile-roadmap tbody .s-date-column,#soha-portal .s-mobile-roadmap .s-today>.s-date-column { background:var(--s-roadmap-header)!important; color:var(--s-roadmap-header-text); border-color:var(--s-roadmap-header-rule); }
+#soha-portal .s-mobile-roadmap tbody .s-date-column small { color:var(--s-roadmap-header-text); }
 #soha-portal .s-photo-checks { margin:16px 0; }
 #soha-portal .s-photo-checks .s-photo-branches { padding:12px; gap:10px; }
 #soha-portal .s-photo-checks .s-photo-branches>div { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:7px; }
