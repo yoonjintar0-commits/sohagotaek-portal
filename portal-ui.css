@@ -290,3 +290,26 @@
 #soha-portal .s-live-person .s-staff-character{width:32px!important;height:32px!important}
 #soha-portal .s-live-person .s-avatar-wrap{width:32px;height:32px}
 #soha-portal .s-home-callouts .s-live-sales span{white-space:normal;word-break:keep-all;overflow-wrap:anywhere;line-height:1.5}
+
+/* Inventory uses the page for vertical scrolling and fills its section. */
+#soha-portal .s-stock-scroll{max-height:none;overflow:visible;overscroll-behavior:auto;scrollbar-gutter:auto}
+#soha-portal .s-stock-table{width:100%;min-width:0;table-layout:fixed;white-space:normal}
+#soha-portal .s-stock-table th,#soha-portal .s-stock-table td{padding:12px!important;font-size:14px!important;line-height:1.5;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+#soha-portal .s-stock-table thead th{font-size:13px!important;top:var(--s-header-height,140px);background:var(--s-soft)}
+#soha-portal .s-stock-table .s-stock-branch{width:11%;color:var(--s-wood);font-weight:600}
+#soha-portal .s-stock-table .s-stock-item{width:26%}
+#soha-portal .s-stock-table .s-stock-unit{width:10%}
+#soha-portal .s-stock-table .s-stock-quantity{width:10%}
+#soha-portal .s-stock-table .s-stock-threshold{width:10%}
+#soha-portal .s-stock-table .s-stock-expiry{width:11%}
+#soha-portal .s-stock-table .s-stock-modified{width:11%}
+#soha-portal .s-stock-table .s-stock-settings{width:11%}
+#soha-portal .s-stock-table td>.s-block-muted{display:block!important;margin:4px 0 0;font-size:12px;line-height:1.4}
+#soha-portal .s-stock-table .s-table-link{white-space:normal;line-height:1.5}
+#soha-portal .s-stock-table [data-inventory-settings]{min-height:44px;text-align:left}
+@media(max-width:1000px){
+ #soha-portal .s-stock-scroll{overflow-x:auto;overflow-y:visible;overscroll-behavior-x:contain}
+ #soha-portal .s-stock-table{min-width:880px;table-layout:auto}
+ #soha-portal .s-stock-table thead th{position:static}
+ #soha-portal .s-stock-table th,#soha-portal .s-stock-table td{white-space:nowrap}
+}
