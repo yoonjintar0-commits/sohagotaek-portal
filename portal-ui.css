@@ -280,3 +280,13 @@
  #soha-portal .s-product-summary strong small{display:block;margin-left:0}
 }
 @media(prefers-reduced-motion:reduce){#soha-portal *,#soha-portal *::before,#soha-portal *::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Give each roster the full card width, with separate photo targets. */
+#soha-portal .s-live-roster{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#soha-portal .s-live-group,#soha-portal .s-live-others{width:100%;min-width:0}
+#soha-portal .s-live-others{margin:0!important}
+#soha-portal .s-live-avatar-row{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(32px,1fr));gap:4px;flex-wrap:wrap!important;padding:4px 0;min-height:44px;overflow:visible}
+#soha-portal .s-live-avatar-row .s-live-person{width:100%;min-width:0;max-width:none;min-height:44px!important;margin-left:0!important;border-radius:8px;justify-content:center;flex:none}
+#soha-portal .s-live-person .s-staff-character{width:32px!important;height:32px!important}
+#soha-portal .s-live-person .s-avatar-wrap{width:32px;height:32px}
+#soha-portal .s-home-callouts .s-live-sales span{white-space:normal;word-break:keep-all;overflow-wrap:anywhere;line-height:1.5}
