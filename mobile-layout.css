@@ -1,5 +1,5 @@
 /* Shared compact controls and mobile schedule. */
-html { touch-action: pan-x pan-y; }
+html { touch-action: pan-x pan-y pinch-zoom; }
 #soha-portal .s-shell:not([hidden]) { display:block; }
 #soha-portal .s-nav { display:flex; flex-direction:row; align-items:center; padding:8px 24px; gap:8px; overflow:auto; border-bottom:1px solid var(--s-rule); }
 #soha-portal .s-nav-title,#soha-portal .s-nav-foot { display:none; }
